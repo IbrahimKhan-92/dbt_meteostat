@@ -17,4 +17,3 @@ WITH airports_regions_join AS (
         USING (country)
     )
     SELECT * FROM airports_regions_join
-    - name: regions
