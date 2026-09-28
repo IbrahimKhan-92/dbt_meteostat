@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: staging_orders
+    description: "Cleaned orders, one row per order"
+    columns:
+      - name: order_id
+        description: "Primary key of the order"
+        tests: [not_null, unique]
+
+  - name: staging_products
+    description: "Cleaned products, one row per product"
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+
+  - name: staging_categories
+    description: "Cleaned categories, one row per category"
+    columns:
+      - name: category_id
+        tests: [not_null, unique]
+
+  - name: prep_sales
+    description: "One row per order line, joined with product and category, incl. revenue"
+    columns:
+      - name: order_id
+        tests: [not_null]
+      - name: revenue
+        description: "unit_price * quantity * (1 - discount)"
+        tests: [not_null]
+
+  - name: mart_sales_performance
+    description: "Monthly sales performance by category"
+    columns:
+      - name: order_year
+        description: "Year when the order was placed"
+        tests: [not_null]
+      - name: order_month
+        description: "Month when the order was placed"
+        tests: [not_null]
+      - name: category_name
+        description: "Product category"
+        tests: [not_null]
+      - name: total_revenue
+        description: "Sum of revenue for that period and category"
+        tests: [not_null]
+      - name: total_orders
+        description: "Number of distinct orders with at least one item of that category"
+      - name: avg_revenue_per_order
+        description: "total_revenue divided by total_orders"
