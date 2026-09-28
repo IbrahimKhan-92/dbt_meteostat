@@ -4,7 +4,7 @@ WITH source_data AS (
 )
 SELECT
     categoryid AS category_id,
-    categoryname AS category_name,
+    categoryname AS category_name
 --	description,
 --	picture,
 FROM source_data
