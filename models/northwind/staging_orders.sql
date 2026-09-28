@@ -15,6 +15,6 @@ SELECT
 --	,shipadress AS ship_address,
     ship_city,
 --	,shipregion AS ship_region
-    ship_postalcode,
+    ship_postal_code,
     ship_country
 FROM source_data
