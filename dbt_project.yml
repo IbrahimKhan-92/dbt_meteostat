@@ -48,4 +48,4 @@ models:
       +materialized: view
     # Applies to all files under models/northwind/
     northwind:
-    +materialized: table
+      +materialized: table
